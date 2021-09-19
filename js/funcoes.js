@@ -17,6 +17,7 @@ const search_button = document.querySelector('.btn');
 const low_high = document.querySelector('.low-high');
 
 window.addEventListener('load', () => {
+    
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(setPosition, showError);
     }
@@ -103,7 +104,7 @@ function dateBuilder(d) {
     let days = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
     let months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julio", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 
-    let day = days[d.getDay()]; //getDay: 0-6
+    let day = days[d.getDay()];
     let date = d.getDate();
     let month = months[d.getMonth()];
     let year = d.getFullYear();
@@ -111,4 +112,6 @@ function dateBuilder(d) {
     return `${day}, ${date} ${month} ${year}`;
 }
 
-
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
